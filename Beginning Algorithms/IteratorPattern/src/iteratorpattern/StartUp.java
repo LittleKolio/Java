@@ -3,15 +3,18 @@ package iteratorpattern;
 public class StartUp {
 
     public static void main(String[] args) {
+        
         Repository repo = new Repository();
-        repo.items.add("A");
-        repo.items.add("B");
-        repo.items.add("C");
-        repo.items.add("D");
-        repo.items.add("F");
-        repo.items.add("G");
+        
+        repo.add("A");
+        repo.add("B");
+        repo.add("C");
+        repo.add("D");
+        repo.add("E");
 
-        Iterator iter = repo.getIterator();
+        IIterator iter = repo.getIterator(1, 3);
+        
+//        iter.first();
         
 //        while(!iter.isDone()){
 //            String symbol = (String)iter.current();

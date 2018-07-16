@@ -2,17 +2,21 @@ package iteratorpattern;
 
 import java.util.ArrayList;
 
-public class Repository implements Container{
+public class Repository implements IContainer{
 
-    public ArrayList items;
-    
+    private ArrayList items;
+
     public Repository(){
         this.items = new ArrayList();
     }
     
     @Override
-    public Iterator getIterator() {
-        return new CollectionIterator(this);
+    public IIterator getIterator(int start, int length) {
+        return new Iterator(this, start, length);
+    }
+    
+    public void add(Object value) {
+        this.items.add(value);
     }
     
     public Object getValue(int index) {
