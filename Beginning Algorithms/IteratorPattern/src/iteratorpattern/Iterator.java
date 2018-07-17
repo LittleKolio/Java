@@ -2,7 +2,7 @@ package iteratorpattern;
 
 public class Iterator implements IIterator{
 
-    private Repository repo;
+    private Repository _repo;
     private int _current = -1;
     private int _first;
     private int _last;
@@ -10,7 +10,7 @@ public class Iterator implements IIterator{
     public Iterator(Repository repo){
         assert repo.getCount() > 0 : "Collection can not be empty!";
         
-        this.repo = repo;
+        this._repo = repo;
         this._first = 0;
         this._last = repo.getCount() - 1;
     }
@@ -21,7 +21,7 @@ public class Iterator implements IIterator{
         assert start < repo.getCount() : "Start index can not be more than collection length!";
         assert length >= 1 : "Length to iterate can not be less than 1!";
         
-        this.repo = repo;
+        this._repo = repo;
         this._first = start;
         this._last = start + length - 1;
         
@@ -58,7 +58,7 @@ public class Iterator implements IIterator{
         if (this.isDone()){
             throw new IteratorOutOfBoundsException();
         }
-        return this.repo.getValue(this._current);
+        return this._repo.getValue(this._current);
     }
     
 }

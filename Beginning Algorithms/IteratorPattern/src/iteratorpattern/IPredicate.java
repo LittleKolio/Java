@@ -1,5 +1,5 @@
 package iteratorpattern;
 
-public interface Predicate {
+public interface IPredicate {
     public boolean evaluate(Object object);
 }

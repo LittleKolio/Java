@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Repository implements IContainer{
 
-    private ArrayList items;
+    private ArrayList _items;
 
     public Repository(){
-        this.items = new ArrayList();
+        this._items = new ArrayList();
     }
     
     @Override
@@ -33,18 +33,18 @@ public class Repository implements IContainer{
     }
     
     public void add(Object value) {
-        this.items.add(value);
+        this._items.add(value);
     }
     
     public Object getValue(int index) {
-        return this.items.get(index);
+        return this._items.get(index);
     }
 
     public void setValue(int index, Object value) {
-        this.items.set(index, value);
+        this._items.set(index, value);
     }
     
     public int getCount() {
-        return this.items.size();
+        return this._items.size();
     }
 }

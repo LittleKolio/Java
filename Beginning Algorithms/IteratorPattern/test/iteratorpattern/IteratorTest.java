@@ -9,11 +9,11 @@ import static org.junit.Assert.*;
 
 public class IteratorTest {
     
-    private static String[] array = {"A","B","C","D","E","F","G"};
-    private static Repository repo;
+    private static String[] _array = {"A","B","C","D","E","F","G"};
+    private static Repository _repo;
     
     public IteratorTest() {
-        repo = new Repository();
+        _repo = new Repository();
     }
     
 //    @BeforeClass
@@ -26,9 +26,8 @@ public class IteratorTest {
     
     @Before
     public void setUp() {
-        
-        for (int i = 0; i < array.length; i++) {
-            repo.add(array[i]);
+        for (int i = 0; i < _array.length; i++) {
+            _repo.add(_array[i]);
         }
     }
     
@@ -37,20 +36,20 @@ public class IteratorTest {
     }
 
     @Test
-    public void hello() {
-        IIterator iter = repo.getIterator(1, 3);
+    public void testIterationBounds() {
+        IIterator iter = _repo.getIterator(1, 3);
 
         iter.first();
         assertFalse(iter.isDone());
-        assertSame(array[1], iter.current());
+        assertSame(_array[1], iter.current());
         
         iter.next();
         assertFalse(iter.isDone());
-        assertSame(array[2], iter.current());
+        assertSame(_array[2], iter.current());
         
         iter.next();
         assertFalse(iter.isDone());
-        assertSame(array[3], iter.current());
+        assertSame(_array[3], iter.current());
         
         iter.next();
         assertTrue(iter.isDone());

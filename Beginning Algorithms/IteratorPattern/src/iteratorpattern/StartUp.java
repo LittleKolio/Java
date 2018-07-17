@@ -12,7 +12,7 @@ public class StartUp {
         repo.add("D");
         repo.add("E");
 
-        IIterator iter = repo.getIterator(1, 3);
+        IIterator iterator = repo.getIterator(1, 3);
         
 //        iter.first();
 //        while(!iter.isDone()){
@@ -21,15 +21,15 @@ public class StartUp {
 //            iter.next();
 //        }
         
-        for(iter.first(); !iter.isDone(); iter.next()){
-             String symbol = (String)iter.current();
+        for(iterator.first(); !iterator.isDone(); iterator.next()){
+             String symbol = (String)iterator.current();
              print(symbol);
         }
         
-        IIterator revIter = repo.getReverseIterator(3, 3);
+        IIterator revIterator = repo.getReverseIterator(3, 3);
 
-        for(revIter.first(); !revIter.isDone(); revIter.next()){
-             String symbol = (String)revIter.current();
+        for(revIterator.first(); !revIterator.isDone(); revIterator.next()){
+             String symbol = (String)revIterator.current();
              print(symbol);
         } 
     }
