@@ -43,5 +43,22 @@ public class IteratorTest {
         iter.first();
         assertFalse(iter.isDone());
         assertSame(array[1], iter.current());
+        
+        iter.next();
+        assertFalse(iter.isDone());
+        assertSame(array[2], iter.current());
+        
+        iter.next();
+        assertFalse(iter.isDone());
+        assertSame(array[3], iter.current());
+        
+        iter.next();
+        assertTrue(iter.isDone());
+        try {
+            iter.current();
+            fail();
+        } catch (IteratorOutOfBoundsException ex){
+            assertSame("Current (index) out of bounds!", ex.getMessage());
+        }
     }
 }

@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Repository/Java/Beginning%20Algorithms/IteratorPattern/src/iteratorpattern/Iterator.java</file>
-            <file>file:/D:/Repository/Java/Beginning%20Algorithms/IteratorPattern/src/iteratorpattern/IIterator.java</file>
-            <file>file:/D:/Repository/Java/Beginning%20Algorithms/IteratorPattern/src/iteratorpattern/IContainer.java</file>
-            <file>file:/D:/Repository/Java/Beginning%20Algorithms/IteratorPattern/src/iteratorpattern/StartUp.java</file>
-            <file>file:/D:/Repository/Java/Beginning%20Algorithms/IteratorPattern/src/iteratorpattern/Repository.java</file>
-            <file>file:/D:/Repository/Java/Beginning%20Algorithms/IteratorPattern/src/iteratorpattern/IteratorOutOfBoundsException.java</file>
-            <file>file:/D:/Repository/Java/Beginning%20Algorithms/IteratorPattern/test/iteratorpattern/IteratorTest.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

@@ -7,6 +7,13 @@ public class Iterator implements IIterator{
     private int _first;
     private int _last;
 
+    public Iterator(Repository repo){
+        assert repo.getCount() > 0 : "Collection can not be empty!";
+        
+        this.repo = repo;
+        this._first = 0;
+        this._last = repo.getCount() - 1;
+    }
     
     public Iterator(Repository repo, int start, int length){
         assert repo.getCount() > 0 : "Collection can not be empty!";

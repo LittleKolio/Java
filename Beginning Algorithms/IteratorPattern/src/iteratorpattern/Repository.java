@@ -15,6 +15,23 @@ public class Repository implements IContainer{
         return new Iterator(this, start, length);
     }
     
+    @Override
+    public IIterator getIterator() {
+        return new Iterator(this);
+    }
+    
+    @Override
+    public IIterator getReverseIterator(int start, int length){
+        return new ReverseIterator(
+            this.getIterator(start - (length - 1), length)
+        );
+    }
+    
+    @Override
+    public IIterator getReverseIterator(){
+        return new ReverseIterator(this.getIterator());
+    }
+    
     public void add(Object value) {
         this.items.add(value);
     }

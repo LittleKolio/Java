@@ -15,7 +15,6 @@ public class StartUp {
         IIterator iter = repo.getIterator(1, 3);
         
 //        iter.first();
-        
 //        while(!iter.isDone()){
 //            String symbol = (String)iter.current();
 //            print(symbol);
@@ -24,6 +23,13 @@ public class StartUp {
         
         for(iter.first(); !iter.isDone(); iter.next()){
              String symbol = (String)iter.current();
+             print(symbol);
+        }
+        
+        IIterator revIter = repo.getReverseIterator(3, 3);
+
+        for(revIter.first(); !revIter.isDone(); revIter.next()){
+             String symbol = (String)revIter.current();
              print(symbol);
         } 
     }
