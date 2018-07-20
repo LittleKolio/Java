@@ -13,32 +13,48 @@ public class FilterIterator implements IIterator{
     
     @Override
     public void first() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        _iterator.first();
+        filterForwards();
     }
 
     @Override
     public void last() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        _iterator.last();
+        filterBackwards();
     }
 
     @Override
     public void next() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        _iterator.next();
+        filterForwards();
     }
 
     @Override
     public void prevous() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        _iterator.prevous();
+        filterBackwards();
     }
 
     @Override
     public boolean isDone() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return _iterator.isDone();
     }
 
     @Override
     public Object current() throws IteratorOutOfBoundsException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return _iterator.current();
+    }
+
+    private void filterForwards() {
+        while(!_iterator.isDone() && !_predicate.evaluate(_iterator.current())) {
+            _iterator.next();
+        }
+    }
+
+    private void filterBackwards() {
+        while(!_iterator.isDone() && !_predicate.evaluate(_iterator.current())) {
+            _iterator.prevous();
+        }
     }
     
 }

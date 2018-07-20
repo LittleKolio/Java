@@ -13,7 +13,6 @@ public class IteratorTest {
     private static Repository _repo;
     
     public IteratorTest() {
-        _repo = new Repository();
     }
     
 //    @BeforeClass
@@ -26,6 +25,8 @@ public class IteratorTest {
     
     @Before
     public void setUp() {
+        _repo = new Repository();
+
         for (int i = 0; i < _array.length; i++) {
             _repo.add(_array[i]);
         }
