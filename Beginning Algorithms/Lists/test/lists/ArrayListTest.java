@@ -5,24 +5,20 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class ArrayListTest extends ListsTest{
-    
+public class ArrayListTest extends ListTest{
+   
     public ArrayListTest() {
     }
     
     @Before
-    @Override
     public void setUp() {
-        //super._list = new CustomArrayList(1);
-    }
-    
-    @After
-    public void tearDown() {
+        _list = new CustomArrayList();
     }
     
     @Test
     public void testResizeBeyondInitialCapacity() {
-
+        _list = new CustomArrayList(1);
+        
         _list.add(VALUE_A);
         _list.add(VALUE_A);
         _list.add(VALUE_A);
@@ -36,6 +32,8 @@ public class ArrayListTest extends ListsTest{
     
     @Test
     public void testDeleteFromLastElementInArray() {
+        _list = new CustomArrayList(1);
+        
         _list.add(new Object());
         
         _list.delete(0);

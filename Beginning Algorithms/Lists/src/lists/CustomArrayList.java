@@ -19,11 +19,19 @@ public class CustomArrayList implements ICustomList{
         clear();
     }
     
+    private void ensureIndexBounds(int index) {
+        if(index < 0 || index >= _size) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+    
     private void ensureCapacity(int capacity) {
         assert capacity > 0 : "capacity must be greater than 0";
         
-        if(_array.length < capacity) {
-            Object[] copy = new Object[capacity + capacity / 2];
+        //if(_array.length < capacity)
+        if(_capacity < capacity) {
+            _capacity = capacity + capacity / 2;
+            Object[] copy = new Object[_capacity];
             System.arraycopy(_array, 0, copy, 0, _size);
             _array = copy;
         }
@@ -40,7 +48,7 @@ public class CustomArrayList implements ICustomList{
         ensureCapacity(_size + 1);
         System.arraycopy(_array, index, _array, index + 1, _size - index);
         _array[index] = value;
-        _size++;
+        ++_size;
     }
 
     @Override
@@ -50,12 +58,26 @@ public class CustomArrayList implements ICustomList{
 
     @Override
     public Object delete(int index) throws IndexOutOfBoundsException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ensureIndexBounds(index);
+        
+        Object value = _array[index];
+        if(index < _size - 1) {
+            System.arraycopy(_array, index + 1, _array, index, _size - index);
+        }
+        _array[--_size] = null;
+        
+        return value;
     }
 
     @Override
     public boolean delete(Object value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int index = indexOf(value);
+        if(index != -1) {
+            delete(index);
+            return true;
+        }
+        
+        return false;
     }
 
     @Override
@@ -66,37 +88,52 @@ public class CustomArrayList implements ICustomList{
 
     @Override
     public Object set(int index, Object value) throws IndexOutOfBoundsException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        assert value != null : "value can not be null";
+        ensureIndexBounds(index);
+        
+        Object oldValue = _array[index];
+        _array[index] = value;
+        return oldValue;
     }
 
     @Override
     public Object get(int index) throws IndexOutOfBoundsException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ensureIndexBounds(index);
+        
+        return _array[index];
     }
 
     @Override
     public int indexOf(Object value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        assert value != null : "value can not be null";
+        
+        for (int i = 0; i < _size; i++) {
+            if(value.equals(_array[i])) {
+                return i;
+            }
+        }
+        
+        return -1;
     }
 
     @Override
     public boolean contains(Object value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return indexOf(value) != -1;
     }
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return _size;
     }
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return _size == 0;
     }
 
     @Override
     public Iterator iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
+        //return new ArrayIterator(_array, 0, _size);
     }
-    
 }

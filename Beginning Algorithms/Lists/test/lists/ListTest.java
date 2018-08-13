@@ -7,20 +7,20 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public abstract class ListsTest {
+public abstract class ListTest {
     protected static Object VALUE_A = "A";
     protected static Object VALUE_B = "B";
     protected static Object VALUE_C = "C";
     
     protected ICustomList _list;
 
-    protected ListsTest() {
+    protected ListTest() {
     }
     
-    @Before
-    public void setUp() {
-        //super._list = new CustomArrayList();
-    }
+    //@Before
+    //public void setUp() {
+    //   _list = new CustomArrayList();
+    //}
     
     @Test
     public void testInsertInToEmptyList() {
@@ -189,7 +189,7 @@ public abstract class ListsTest {
         _list.add(VALUE_C);
 
         assertEquals(3, _list.size());
-        assertSame(VALUE_A, _list.delete(2));
+        assertSame(VALUE_C, _list.delete(2));
         
         assertEquals(2, _list.size());
         assertSame(VALUE_A, _list.get(0));
@@ -203,7 +203,7 @@ public abstract class ListsTest {
         _list.add(VALUE_C);
 
         assertEquals(3, _list.size());
-        assertSame(VALUE_A, _list.delete(1));
+        assertSame(VALUE_B, _list.delete(1));
         
         assertEquals(2, _list.size());
         assertSame(VALUE_A, _list.get(0));
